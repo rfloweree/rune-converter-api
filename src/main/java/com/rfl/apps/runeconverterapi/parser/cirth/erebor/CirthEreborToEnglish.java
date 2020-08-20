@@ -1,7 +1,8 @@
-package com.rfl.apps.runeconverterapi.parser.cirth;
+package com.rfl.apps.runeconverterapi.parser.cirth.erebor;
 
 import com.rfl.apps.runeconverterapi.parser.KeyboardCharUtil;
 import com.rfl.apps.runeconverterapi.parser.ParserImpl;
+import com.rfl.apps.runeconverterapi.parser.cirth.Cirth;
 
 /**
  * Parser for converting Erebor runes to English letter representations.
