@@ -136,18 +136,22 @@ public class EnglishToCirthErebor extends ParserImpl {
                     if (next < charArray.length) {
                         switch (charArray[next]) {
                             case KeyboardCharUtil.LOWERCASE_D:
+                            case KeyboardCharUtil.UPPERCASE_D:
                                 sb.append(Cirth.UNDUN.getErebor());
                                 next++;
                                 break;
                             case KeyboardCharUtil.LOWERCASE_G:
+                            case KeyboardCharUtil.UPPERCASE_G:
                                 sb.append(Cirth.ANGAM.getErebor());
                                 next++;
                                 break;
                             case KeyboardCharUtil.LOWERCASE_J:
+                            case KeyboardCharUtil.UPPERCASE_J:
                                 sb.append(Cirth.INJA.getErebor());
                                 next++;
                                 break;
                             case KeyboardCharUtil.LOWERCASE_N:
+                            case KeyboardCharUtil.UPPERCASE_N:
                                 sb.append(Cirth.YAN_NIBUM.getErebor());
                                 next++;
                                 break;
