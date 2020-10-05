@@ -104,14 +104,20 @@ public class EnglishToCirthErebor extends ParserImpl {
                 case KeyboardCharUtil.UPPERCASE_K:
                     next++;
                     if (next < charArray.length) {
-                        if (charArray[next] == KeyboardCharUtil.LOWERCASE_H) {
-                            sb.append(Cirth.KHAMU.getErebor());
-                            next++;
-                        } else if (charArray[next] == KeyboardCharUtil.LOWERCASE_S) {
-                            sb.append(Cirth.KSUBAM.getErebor());
-                            next++;
-                        } else {
-                            sb.append(Cirth.KAM.getErebor());
+                        switch (charArray[next]) {
+                            case KeyboardCharUtil.LOWERCASE_H:
+                            case KeyboardCharUtil.UPPERCASE_H:
+                                sb.append(Cirth.KHAMU.getErebor());
+                                next++;
+                                break;
+                            case KeyboardCharUtil.LOWERCASE_S:
+                            case KeyboardCharUtil.UPPERCASE_S:
+                                sb.append(Cirth.KSUBAM.getErebor());
+                                next++;
+                                break;
+                            default:
+                                sb.append(Cirth.KAM.getErebor());
+                                break;
                         }
                     } else {
                         sb.append(Cirth.KAM.getErebor());
@@ -217,10 +223,12 @@ public class EnglishToCirthErebor extends ParserImpl {
                     if (next < charArray.length) {
                         switch (charArray[next]) {
                             case KeyboardCharUtil.LOWERCASE_H:
+                            case KeyboardCharUtil.UPPERCASE_H:
                                 sb.append(Cirth.THAMU.getErebor());
                                 next++;
                                 break;
                             case KeyboardCharUtil.LOWERCASE_S:
+                            case KeyboardCharUtil.UPPERCASE_S:
                                 sb.append(Cirth.TSUBAM.getErebor());
                                 next++;
                                 break;
