@@ -11,10 +11,6 @@ import java.util.Set;
  */
 public abstract class ParserImpl implements Parser {
     /**
-     * The text string that has been parsed.
-     */
-    private String textString;
-    /**
      * Characters from the original text string.
      */
     private char[] textArray;
@@ -36,8 +32,7 @@ public abstract class ParserImpl implements Parser {
     @Override
     public String parse(String text) {
         next = 0;
-        textString = "";
-        missingSymbols.clear();
+        missingSymbols = new LinkedHashSet<>();
         textArray = text.toCharArray();
         StringBuilder sb = new StringBuilder(text.length());
         //recursive call made here.
