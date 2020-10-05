@@ -93,4 +93,32 @@ public class EnglishToCirthEreborTest {
         //Test - TH
         //Test - TS
     }
+    
+    @Test
+    public void testParseValidNumbers() {
+        System.out.println("Testing Parse() for Numbers.");
+        //Test - Single digits
+        String text = "0";
+        StringBuilder sb = new StringBuilder(text.length());
+        EnglishToCirthErebor instance = new EnglishToCirthErebor();
+        instance.parse(sb, text.toCharArray());
+        assertEquals("\\F", sb.toString());
+        //Test - Multiple digits
+        text = "567";
+        sb = new StringBuilder(text.length());
+        instance = new EnglishToCirthErebor();
+        instance.parse(sb, text.toCharArray());
+        assertEquals("\\u\\llllll\\f", sb.toString());
+        //Test - Multiple digits with decimals
+        text = "3.1419";
+        sb = new StringBuilder(text.length());
+        instance = new EnglishToCirthErebor();
+        instance.parse(sb, text.toCharArray());
+        assertEquals("\\m{\\l\\+\\l\\L", sb.toString());
+        text = "123.456.78.90";
+        sb = new StringBuilder(text.length());
+        instance = new EnglishToCirthErebor();
+        instance.parse(sb, text.toCharArray());
+        assertEquals("\\l\\b\\m{\\+\\u\\llllll{\\f\\U{\\L\\F", sb.toString());
+    }
 }
